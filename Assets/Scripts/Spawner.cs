@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
   [SerializeField] List<WaveConfig> waveConfigs;
   [SerializeField] int startingWave = 0;
@@ -30,9 +30,9 @@ public class EnemySpawner : MonoBehaviour
   {
     for (int i = 0; i < waveConfig.GetNumberOfEnemies(); i++)
     {
-      var newEnemy = Instantiate(waveConfig.GetEnemyPrefab(), waveConfig.GetWaypoints()[0].transform.position, Quaternion.Euler(new Vector3(0, 0, 225)));
+      var newCharacter = Instantiate(waveConfig.GetCharacterPrefab(), waveConfig.GetWaypoints()[0].transform.position, Quaternion.Euler(new Vector3(0, 0, 225)));
 
-      newEnemy.GetComponent<EnemyPathing>().SetWaveConfig(waveConfig);
+      newCharacter.GetComponent<Pathing>().SetWaveConfig(waveConfig);
 
       yield return new WaitForSeconds(waveConfig.GetTimeBetweenSpawns());
     }
