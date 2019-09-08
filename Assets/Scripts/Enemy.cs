@@ -5,7 +5,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
+  [Header("Enemy Stats")]
   [SerializeField] float health = 100f;
+  [SerializeField] int scoreValue = 150;
+
+  [Header("Shooting")]
   [SerializeField] float shotCounter;
   [SerializeField] float minTimeBetweenShots = 0.2f;
   [SerializeField] float maxTimeBetweenShots = 3f;
@@ -54,7 +58,13 @@ public class Enemy : MonoBehaviour
     damageDealer.Hit();
     if (health <= 0)
     {
-      Destroy(gameObject);
+      Die();
     }
+  }
+
+  private void Die()
+  {
+    FindObjectOfType<GameSession>().AddToScore(scoreValue);
+    Destroy(gameObject);
   }
 }

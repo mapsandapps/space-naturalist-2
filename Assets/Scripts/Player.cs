@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 
   [Header("Player Movement")]
   [SerializeField] float moveSpeed = 10f;
-  [SerializeField] int health = 200;
+  [SerializeField] int health = 500;
 
   [Header("Projectile")]
   [SerializeField] GameObject bulletPrefab;
@@ -47,7 +47,6 @@ public class Player : MonoBehaviour
 
   private void CollectFriend(Friend friend)
   {
-    // TODO: increment score
     friend.Collect();
   }
 
@@ -57,8 +56,14 @@ public class Player : MonoBehaviour
     damageDealer.Hit();
     if (health <= 0)
     {
-      Destroy(gameObject);
+      Die();
     }
+  }
+
+  private void Die()
+  {
+    FindObjectOfType<LevelLoading>().LoadGameOver();
+    Destroy(gameObject);
   }
 
   private void Fire()

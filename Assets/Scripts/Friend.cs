@@ -5,6 +5,7 @@ using UnityEngine;
 public class Friend : MonoBehaviour
 {
   [SerializeField] float health = 100f;
+  [SerializeField] int scoreValue = 1000;
 
   // Start is called before the first frame update
   void Start()
@@ -33,12 +34,13 @@ public class Friend : MonoBehaviour
     damageDealer.Hit();
     if (health <= 0)
     {
-      // Destroy(gameObject); // TODO
+      Destroy(gameObject);
     }
   }
 
   public void Collect()
   {
     Destroy(gameObject);
+    FindObjectOfType<GameSession>().AddToScore(scoreValue);
   }
 }
