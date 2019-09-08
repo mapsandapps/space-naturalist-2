@@ -33,9 +33,22 @@ public class Player : MonoBehaviour
   private void OnTriggerEnter2D(Collider2D other)
   {
     DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
-    if (!damageDealer) { return; }
+    if (damageDealer)
+    {
+      ProcessHit(damageDealer);
+    }
 
-    ProcessHit(damageDealer);
+    Friend friend = other.gameObject.GetComponent<Friend>();
+    if (friend)
+    {
+      CollectFriend(friend);
+    }
+  }
+
+  private void CollectFriend(Friend friend)
+  {
+    // TODO: increment score
+    friend.Collect();
   }
 
   private void ProcessHit(DamageDealer damageDealer)
