@@ -5,7 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
+  [Header("Player Movement")]
   [SerializeField] float moveSpeed = 10f;
+  [SerializeField] int health = 200;
+
+  [Header("Projectile")]
   [SerializeField] GameObject bulletPrefab;
   [SerializeField] float projectileSpeed = 20f;
   float xMin;
@@ -24,6 +28,24 @@ public class Player : MonoBehaviour
   {
     Move();
     Fire();
+  }
+
+  private void OnTriggerEnter2D(Collider2D other)
+  {
+    DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+    if (!damageDealer) { return; }
+
+    ProcessHit(damageDealer);
+  }
+
+  private void ProcessHit(DamageDealer damageDealer)
+  {
+    health -= damageDealer.GetDamage();
+    damageDealer.Hit();
+    if (health <= 0)
+    {
+      Destroy(gameObject);
+    }
   }
 
   private void Fire()
