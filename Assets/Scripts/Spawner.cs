@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
   [SerializeField] List<WaveConfig> friendlyWaveConfigs;
   [SerializeField] int wavesCompleted = 0;
   [SerializeField] bool looping = true;
+  [SerializeField] string waveType;
 
   IEnumerator Start()
   {
@@ -22,6 +23,7 @@ public class Spawner : MonoBehaviour
     if (wavesCompleted % 4 == 2)
     {
       // spawn friendly wave
+      waveType = "Friend";
       int randomWaveIndex = Random.Range(0, friendlyWaveConfigs.Count);
       WaveConfig currentWave = friendlyWaveConfigs[randomWaveIndex];
       wavesCompleted++;
@@ -31,6 +33,7 @@ public class Spawner : MonoBehaviour
     else
     {
       // spawn enemy wave
+      waveType = "Enemy";
       int randomWaveIndex = Random.Range(0, enemyWaveConfigs.Count);
       Debug.Log(randomWaveIndex);
       WaveConfig currentWave = enemyWaveConfigs[randomWaveIndex];
@@ -55,7 +58,8 @@ public class Spawner : MonoBehaviour
   {
     for (int i = 0; i < waveConfig.GetNumberOfEnemies(); i++)
     {
-      var newCharacter = Instantiate(waveConfig.GetCharacterPrefab(), waveConfig.GetWaypoints()[0].transform.position, Quaternion.Euler(new Vector3(0, 0, 225)));
+      var angle = waveType == "Enemy" ? Quaternion.Euler(new Vector3(0, 0, 225)) : Quaternion.identity;
+      var newCharacter = Instantiate(waveConfig.GetCharacterPrefab(), waveConfig.GetWaypoints()[0].transform.position, angle);
 
       newCharacter.GetComponent<Pathing>().SetWaveConfig(waveConfig);
 

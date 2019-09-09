@@ -15,7 +15,7 @@ public class LevelLoading : MonoBehaviour
   public void LoadGameScene()
   {
     StartCoroutine(WaitAndLoad());
-    FindObjectOfType<SecondsDisplay>().StopTimer();
+    FindObjectOfType<SecondsDisplay>().StopTimer(); // FIXME: error
     FindObjectOfType<GameSession>().ResetGame();
   }
 

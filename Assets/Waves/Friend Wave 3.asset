@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9a264b455cd84862825dfa175c13c80, type: 3}
-  m_Name: Wave 1
+  m_Name: Friend Wave 3
   m_EditorClassIdentifier: 
-  waveType: 0
-  characterPrefab: {fileID: 3655240990883282804, guid: c46c497be08344780b22fd6eb484863f,
+  waveType: 1
+  characterPrefab: {fileID: 9018067085142777642, guid: 161fd55d28f654ce8a0e1ddbf64c1af5,
     type: 3}
-  pathPrefab: {fileID: 1194876198180362799, guid: cb1975d1c28584429b0469761018c08f,
+  pathPrefab: {fileID: 6395669515789296568, guid: 7c6977b333fb948fd8cda61624ab0f1a,
     type: 3}
   secondsBetweenSpawns: 0.5
   spawnRandomFactor: 0.3
-  numberOfEnemies: 5
+  numberOfEnemies: 1
   moveSpeed: 2
