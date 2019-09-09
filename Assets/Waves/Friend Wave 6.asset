@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: Friend Wave 6
   m_EditorClassIdentifier: 
   waveType: 1
-  characterPrefab: {fileID: 940902714490529160, guid: 298cfb3aed821493fb5879837f85e5d8,
+  characterPrefab: {fileID: 8228423074810420615, guid: 9d5e97b8d970e462fac6391137c0332f,
     type: 3}
   pathPrefab: {fileID: 6395669515789296568, guid: 7c6977b333fb948fd8cda61624ab0f1a,
     type: 3}
   secondsBetweenSpawns: 0.5
   spawnRandomFactor: 0.3
-  numberOfEnemies: 1
   moveSpeed: 2

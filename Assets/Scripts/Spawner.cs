@@ -35,7 +35,6 @@ public class Spawner : MonoBehaviour
       // spawn enemy wave
       waveType = "Enemy";
       int randomWaveIndex = Random.Range(0, enemyWaveConfigs.Count);
-      Debug.Log(randomWaveIndex);
       WaveConfig currentWave = enemyWaveConfigs[randomWaveIndex];
       wavesCompleted++;
       StartCoroutine(SpawnAllEnemiesInWave(currentWave));

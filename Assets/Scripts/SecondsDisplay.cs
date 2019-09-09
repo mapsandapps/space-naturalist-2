@@ -43,7 +43,6 @@ public class SecondsDisplay : MonoBehaviour
   {
     timer = startSeconds;
     counting = true;
-    Debug.Log(timer);
   }
 
   public void StopTimer()
