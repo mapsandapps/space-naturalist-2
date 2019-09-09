@@ -22,13 +22,17 @@ public class LevelLoading : MonoBehaviour
   {
     yield return new WaitForSeconds(delayInSeconds);
 
-    // TODO: block breaker has info about how to do levels
     SceneManager.LoadScene("GameScene");
   }
 
   public void LoadGameOver()
   {
     SceneManager.LoadScene("GameOver");
+  }
+
+  public void LoadWinScene()
+  {
+    SceneManager.LoadScene("WinScene");
   }
 
   public void QuitGame()

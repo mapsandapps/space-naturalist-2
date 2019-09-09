@@ -13,6 +13,7 @@ public class GameSession : MonoBehaviour
 
   private void SetUpSingleton()
   {
+    FindObjectOfType<SecondsDisplay>().ResetTimer();
     int numberOfGameSessions = FindObjectsOfType<GameSession>().Length;
 
     if (numberOfGameSessions > 1)
@@ -37,6 +38,7 @@ public class GameSession : MonoBehaviour
 
   public void ResetGame()
   {
+    FindObjectOfType<SecondsDisplay>().StopTimer();
     Destroy(gameObject);
   }
 }

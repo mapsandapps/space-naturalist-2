@@ -66,6 +66,11 @@ public class Player : MonoBehaviour
     Destroy(gameObject);
   }
 
+  public int GetHealth()
+  {
+    return health;
+  }
+
   private void Fire()
   {
     if (Input.GetButtonDown("Fire1"))
