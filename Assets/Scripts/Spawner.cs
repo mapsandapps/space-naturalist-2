@@ -43,17 +43,6 @@ public class Spawner : MonoBehaviour
     }
   }
 
-  // private IEnumerator SpawnAllWaves()
-  // {
-  //   for (int i = startingWave; i < enemyWaveConfigs.Count; i++)
-  //   {
-  //     WaveConfig currentWave = enemyWaveConfigs[i];
-  //     // yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave));
-  //     StartCoroutine(SpawnAllEnemiesInWave(currentWave));
-  //     yield return new WaitForSeconds(5.0f);
-  //   }
-  // }
-
   private IEnumerator SpawnAllEnemiesInWave(WaveConfig waveConfig)
   {
     for (int i = 0; i < waveConfig.GetNumberOfEnemies(); i++)
