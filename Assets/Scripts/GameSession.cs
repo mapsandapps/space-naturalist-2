@@ -38,7 +38,6 @@ public class GameSession : MonoBehaviour
 
   public void ResetGame()
   {
-    FindObjectOfType<SecondsDisplay>().StopTimer();
     Destroy(gameObject);
   }
 }

@@ -5,6 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Wave Config")]
 public class WaveConfig : ScriptableObject
 {
+  // TODO: i probably want to remove this enum and uses of it
+  public enum WaveType { Enemy, Friend };
+
+  [SerializeField] WaveType waveType;
   [SerializeField] GameObject characterPrefab;
   [SerializeField] GameObject pathPrefab;
   [SerializeField] float secondsBetweenSpawns = 0.5f;
@@ -13,6 +17,7 @@ public class WaveConfig : ScriptableObject
   [SerializeField] float moveSpeed = 2f;
 
   public GameObject GetCharacterPrefab() { return characterPrefab; }
+  public WaveType GetWaveType() { return waveType; }
   public List<Transform> GetWaypoints()
   {
     var waveWaypoints = new List<Transform>();

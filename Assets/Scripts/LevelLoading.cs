@@ -15,6 +15,7 @@ public class LevelLoading : MonoBehaviour
   public void LoadGameScene()
   {
     StartCoroutine(WaitAndLoad());
+    FindObjectOfType<SecondsDisplay>().StopTimer();
     FindObjectOfType<GameSession>().ResetGame();
   }
 

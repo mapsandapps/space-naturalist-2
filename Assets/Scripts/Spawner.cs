@@ -4,28 +4,52 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-  [SerializeField] List<WaveConfig> waveConfigs;
-  [SerializeField] int startingWave = 0;
+  [SerializeField] List<WaveConfig> enemyWaveConfigs;
+  [SerializeField] List<WaveConfig> friendlyWaveConfigs;
+  [SerializeField] int wavesCompleted = 0;
   [SerializeField] bool looping = true;
 
   IEnumerator Start()
   {
     do
     {
-      yield return StartCoroutine(SpawnAllWaves());
+      yield return StartCoroutine(SpawnWave());
     } while (looping);
   }
 
-  private IEnumerator SpawnAllWaves()
+  private IEnumerator SpawnWave()
   {
-    for (int i = startingWave; i < waveConfigs.Count; i++)
+    if (wavesCompleted % 4 == 2)
     {
-      WaveConfig currentWave = waveConfigs[i];
-      // yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave));
+      // spawn friendly wave
+      int randomWaveIndex = Random.Range(0, friendlyWaveConfigs.Count);
+      WaveConfig currentWave = friendlyWaveConfigs[randomWaveIndex];
+      wavesCompleted++;
       StartCoroutine(SpawnAllEnemiesInWave(currentWave));
-      yield return new WaitForSeconds(5.0f);
+      yield return new WaitForSeconds(4.0f);
+    }
+    else
+    {
+      // spawn enemy wave
+      int randomWaveIndex = Random.Range(0, enemyWaveConfigs.Count);
+      Debug.Log(randomWaveIndex);
+      WaveConfig currentWave = enemyWaveConfigs[randomWaveIndex];
+      wavesCompleted++;
+      StartCoroutine(SpawnAllEnemiesInWave(currentWave));
+      yield return new WaitForSeconds(4.0f);
     }
   }
+
+  // private IEnumerator SpawnAllWaves()
+  // {
+  //   for (int i = startingWave; i < enemyWaveConfigs.Count; i++)
+  //   {
+  //     WaveConfig currentWave = enemyWaveConfigs[i];
+  //     // yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave));
+  //     StartCoroutine(SpawnAllEnemiesInWave(currentWave));
+  //     yield return new WaitForSeconds(5.0f);
+  //   }
+  // }
 
   private IEnumerator SpawnAllEnemiesInWave(WaveConfig waveConfig)
   {
