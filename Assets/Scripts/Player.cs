@@ -7,7 +7,8 @@ public class Player : MonoBehaviour
 
   [Header("Player Movement")]
   [SerializeField] float moveSpeed = 10f;
-  [SerializeField] int health = 500;
+  [SerializeField] int health = 1000;
+  private bool inputEnabled = true;
 
   [Header("Projectile")]
   [SerializeField] GameObject bulletPrefab;
@@ -16,6 +17,12 @@ public class Player : MonoBehaviour
   float xMax;
   float yMin;
   float yMax;
+
+  [Header("Audio")]
+  [SerializeField] AudioClip deathSFX;
+  [SerializeField] [Range(0, 1)] float deathSFXVolume = 0.7f;
+  [SerializeField] AudioClip projectileSFX;
+  [SerializeField] [Range(0, 1)] float projectileSFXVolume = 0.25f;
 
   // Start is called before the first frame update
   void Start()
@@ -26,8 +33,11 @@ public class Player : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    Move();
-    Fire();
+    if (inputEnabled)
+    {
+      Move();
+      Fire();
+    }
   }
 
   private void OnTriggerEnter2D(Collider2D other)
@@ -62,8 +72,22 @@ public class Player : MonoBehaviour
 
   private void Die()
   {
-    FindObjectOfType<LevelLoading>().LoadGameOver();
+    GetComponent<SpriteRenderer>().color = Color.black;
+    inputEnabled = false;
+    AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSFXVolume);
+    StartCoroutine(WaitForDeathSoundToComplete());
+  }
+
+  IEnumerator WaitForDeathSoundToComplete()
+  {
+    yield return new WaitForSeconds(1.547f);
+    EndGame();
+  }
+
+  public void EndGame()
+  {
     Destroy(gameObject);
+    FindObjectOfType<LevelLoading>().LoadGameOver();
   }
 
   public int GetHealth()
@@ -77,6 +101,7 @@ public class Player : MonoBehaviour
     {
       GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity) as GameObject;
       bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+      AudioSource.PlayClipAtPoint(projectileSFX, Camera.main.transform.position, projectileSFXVolume);
     }
   }
 

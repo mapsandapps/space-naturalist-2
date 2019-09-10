@@ -14,3 +14,4 @@ WASD or arrows to move, space to shoot
 
 * [Font by Kenney](https://www.kenney.nl/assets/kenney-fonts)
 * [Assets by Kenney](https://www.kenney.nl/assets/bit-pack)
+* [Sounds by Kenney](https://kenney.nl/assets?q=audio)

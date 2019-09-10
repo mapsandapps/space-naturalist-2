@@ -6,6 +6,8 @@ public class Friend : MonoBehaviour
 {
   [SerializeField] float health = 100f;
   [SerializeField] int scoreValue = 1000;
+  [SerializeField] AudioClip pickupSFX;
+  [SerializeField] [Range(0, 1)] float pickupSFXVolume = 0.7f;
 
   // Start is called before the first frame update
   void Start()
@@ -42,5 +44,6 @@ public class Friend : MonoBehaviour
   {
     Destroy(gameObject);
     FindObjectOfType<GameSession>().AddToScore(scoreValue);
+    AudioSource.PlayClipAtPoint(pickupSFX, Camera.main.transform.position, pickupSFXVolume);
   }
 }

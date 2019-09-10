@@ -60,6 +60,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -140,6 +141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   scoreValue: 1000
+  pickupSFX: {fileID: 8300000, guid: 63ea7528c5a24489f9be9d051029e8be, type: 3}
+  pickupSFXVolume: 0.7
 --- !u!50 &-6776816894964411577
 Rigidbody2D:
   serializedVersion: 4

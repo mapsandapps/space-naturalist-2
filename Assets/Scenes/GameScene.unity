@@ -350,10 +350,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  health: 500
+  health: 1000
   bulletPrefab: {fileID: 9030452865718500739, guid: 78e3b8d17339e4c418bec498d46d62a1,
     type: 3}
   projectileSpeed: 20
+  deathSFX: {fileID: 8300000, guid: da3e1f19308ba4c22878e2f35e589170, type: 3}
+  deathSFXVolume: 0.7
+  projectileSFX: {fileID: 8300000, guid: f99d7e084e8da4d7c94fb2d09e1e43c5, type: 3}
+  projectileSFXVolume: 0.25
 --- !u!60 &339642712
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -501,7 +505,7 @@ GameObject:
   - component: {fileID: 402434874}
   - component: {fileID: 402434873}
   m_Layer: 0
-  m_Name: Shredder
+  m_Name: Shredder Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -875,7 +879,7 @@ GameObject:
   - component: {fileID: 738682926}
   - component: {fileID: 738682925}
   m_Layer: 0
-  m_Name: Shredder (1)
+  m_Name: Shredder Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -931,7 +935,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1010091998
 GameObject:
@@ -1181,7 +1185,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1026729713165211638 stripped
 Transform:

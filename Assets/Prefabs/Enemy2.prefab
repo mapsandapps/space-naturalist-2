@@ -61,6 +61,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -116,6 +117,10 @@ MonoBehaviour:
   projectile: {fileID: 2480452089102284821, guid: 5430d518f788d44efb022b711fc56904,
     type: 3}
   projectileSpeed: 20
+  deathSFX: {fileID: 8300000, guid: 4db253ca683af47e79cbdff2831952b0, type: 3}
+  deathSFXVolume: 0.7
+  projectileSFX: {fileID: 8300000, guid: 02010f99b91734d6fb0714d3b71f3fa7, type: 3}
+  projectileSFXVolume: 0.4
 --- !u!60 &-5472598127425799151
 PolygonCollider2D:
   m_ObjectHideFlags: 0

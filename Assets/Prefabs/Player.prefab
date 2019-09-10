@@ -58,6 +58,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -97,6 +98,10 @@ MonoBehaviour:
   health: 200
   bulletPrefab: {fileID: 0}
   projectileSpeed: 20
+  deathSFX: {fileID: 8300000, guid: da3e1f19308ba4c22878e2f35e589170, type: 3}
+  deathSFXVolume: 0.7
+  projectileSFX: {fileID: 8300000, guid: 02010f99b91734d6fb0714d3b71f3fa7, type: 3}
+  projectileSFXVolume: 0.25
 --- !u!60 &-4084307253889564132
 PolygonCollider2D:
   m_ObjectHideFlags: 0
